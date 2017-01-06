@@ -785,12 +785,12 @@ public class PigpioSocket extends CommonPigpio {
 	} // End of gpioSetAlertFunc
 
 	/**
-	 * Not implemented
+	 * Works with pigpio V59
 	 */
 	@Override
 	public void gpioTrigger(int gpio, long pulseLen, boolean level) throws PigpioException {
 		try {
-			ByteBuffer bb = ByteBuffer.allocate(12);
+			ByteBuffer bb = ByteBuffer.allocate(4);
 			bb.order(ByteOrder.LITTLE_ENDIAN);
 			bb.putInt(level?1:0);
 
